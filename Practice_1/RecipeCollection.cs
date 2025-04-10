@@ -7,26 +7,35 @@ public class RecipeCollection
 {
     private List<Recipe> recipes = new List<Recipe>();
 
+    //BUG: починить индексатор
+    public Recipe this[int index]
+    {
+        get => recipes[index];
+        set => recipes[index] = value;
+    }
+    public int GetCapacity()
+    {
+        return recipes.Capacity;
+    }
     public void AddRecipe(Recipe recipe)
     {
         recipes.Add(recipe);
     }
-
-    public void RemoveRecipe(string recipeTitle)
+    /* Удаление рецептов по названию и году создания. Возвращает количество удаленных рецептов.
+    // Методы ниже используют т.н "Делегаты" - указатели на методы. Здесь r - делегат, позволяющий 
+    // получить значение поля объекта через неявный вызов метода get.
+    */
+    
+    public int RemoveRecipe(string recipeTitle, int recipeYear)
     {
-        recipes.RemoveAll(r => r.Title == recipeTitle);
+      return recipes.RemoveAll(r => r.Title == recipeTitle && r.Year == recipeYear);
     }
-
-    public void RemoveRecipe(int recipeYear)
-    {
-        recipes.RemoveAll(r => r.Year == recipeYear);
-    }
-
+    //Возвращает список рецептов определенного автора. Так же использует делегат для поиска
     public List<Recipe> FindRecipesByAuthor(string recipeAuthor)
     {
         return recipes.Where(r => r.Author == recipeAuthor).ToList();
     }
-
+    // Возвращает список рецептов по кухне. Все так же при помощи делегата.
     public List<Recipe> GetRecipesByCuisine(string recipeCuisine)
     {
         return recipes.Where(r => r.Cuisine == recipeCuisine).ToList();
