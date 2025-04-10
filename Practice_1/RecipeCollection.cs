@@ -3,11 +3,11 @@ using System.Collections;
 
 namespace Practice;
 
-public class RecipeCollection
+public class RecipeCollection: IEnumerable
 {
     private List<Recipe> recipes = new List<Recipe>();
 
-    //BUG: починить индексатор
+  
     public Recipe this[int index]
     {
         get => recipes[index];
@@ -40,4 +40,12 @@ public class RecipeCollection
     {
         return recipes.Where(r => r.Cuisine == recipeCuisine).ToList();
     }
+// Для работы foreach наш класс должен реализовывать интерфейс IEnumerable 
+// тут будет реализация
+
+
+public IEnumerator GetEnumerator()
+{
+    throw new NotImplementedException();
+}
 }

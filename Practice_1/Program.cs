@@ -7,8 +7,13 @@ recipeBook.AddRecipe(new Recipe("Голубцы с Говном", "Иван Се
 recipeBook.AddRecipe(new Recipe("Хрючево","ХЗ кто","Кухня времен царя Гороха",1200));
 var recipe6 = new Recipe("test","test","test",1212);
 recipeBook.AddRecipe(recipe6);
-for(int i = 0; i < recipeBook.GetCapacity(); i++)
+
+//TODO: починить итератор в RecipeCollection
+// смотреть тут - https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.ienumerable?view=net-9.0
+foreach (var recipe in recipeBook)
 {
-    Console.WriteLine(recipeBook[i]);
+    Console.WriteLine(recipe);
 }
+
+
 
