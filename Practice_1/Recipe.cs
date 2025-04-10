@@ -6,8 +6,16 @@ public class Recipe
     public string Title { get; set; } 
     public string Author { get; set; }
     public string Cuisine {get; set;}
-    public int Year{get; set;}
-    public Recipe(string title, string author, string cuisine, uint year){}
+    public uint Year{get; set;}
+
+    public Recipe(string title, string author, string cuisine, uint year)
+    {
+        Title = title;
+        Author = author;
+        Cuisine = cuisine;
+        Year = year;
+        
+    }
 
     public Recipe()
     {
@@ -26,7 +34,7 @@ public class Recipe
         result.AppendLine($"Год создания: {Year}");
         return result.ToString();
     }
-
+    
     public static bool operator ==(Recipe first, Recipe second)
     {
         return first.Title == second.Title && first.Year == second.Year;

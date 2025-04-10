@@ -1,9 +1,11 @@
 ﻿
+using System.Collections;
+
 namespace Practice;
 
 public class RecipeCollection
 {
-    private List<Recipe> recipes;
+    private List<Recipe> recipes = new List<Recipe>();
 
     public void AddRecipe(Recipe recipe)
     {
