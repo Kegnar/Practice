@@ -8,12 +8,8 @@ recipeBook.AddRecipe(new Recipe("Хрючево","ХЗ кто","Кухня вр�
 var recipe6 = new Recipe("test","test","test",1212);
 recipeBook.AddRecipe(recipe6);
 
-//TODO: починить итератор в RecipeCollection
-// смотреть тут - https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.ienumerable?view=net-9.0
-foreach (var recipe in recipeBook)
+for (int i = 0; i < recipeBook.GetCount(); i++)
 {
-    Console.WriteLine(recipe);
+    Console.WriteLine(recipeBook[i]);
 }
-
-
 

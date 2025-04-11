@@ -3,19 +3,19 @@ using System.Collections;
 
 namespace Practice;
 
-public class RecipeCollection: IEnumerable
+public class RecipeCollection
 {
     private List<Recipe> recipes = new List<Recipe>();
 
-  
+        // индексатор
     public Recipe this[int index]
     {
         get => recipes[index];
         set => recipes[index] = value;
     }
-    public int GetCapacity()
+    public int GetCount()
     {
-        return recipes.Capacity;
+        return recipes.Count;
     }
     public void AddRecipe(Recipe recipe)
     {
@@ -40,12 +40,6 @@ public class RecipeCollection: IEnumerable
     {
         return recipes.Where(r => r.Cuisine == recipeCuisine).ToList();
     }
-// Для работы foreach наш класс должен реализовывать интерфейс IEnumerable 
-// тут будет реализация
 
 
-public IEnumerator GetEnumerator()
-{
-    throw new NotImplementedException();
-}
 }

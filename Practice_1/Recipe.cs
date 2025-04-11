@@ -14,6 +14,8 @@ public class Recipe(string title, string author, string cuisine, uint year) // p
     {
         
     }
+    
+
     // перегрузка ToStirng()
     public override string ToString()
     {
