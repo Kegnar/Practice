@@ -10,7 +10,7 @@ public class Recipe
     public int Year { get; set; }
     public Recipe(string title, string author, string cuisine, int year)
     {
-        // Для проверки ArgumentNullException. nullOrEmpty() возвращает true если по ссылке null или пустая строка
+        // Для проверки ArgumentNullException. string.IsNullOrEmpty(string str) возвращает true если по ссылке null или пустая строка
         if (string.IsNullOrEmpty(title)|| string.IsNullOrEmpty(author) || string.IsNullOrEmpty(cuisine))
         {
             throw new ArgumentNullException("Поля рецепра не могут быть пустыми");
