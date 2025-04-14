@@ -1,13 +1,10 @@
-﻿
-using System.Collections;
-
-namespace Practice;
+﻿namespace Practice;
 
 public class RecipeCollection
 {
     private List<Recipe> recipes = new List<Recipe>();
 
-        // индексатор
+  
     public Recipe this[int index]
     {
         get => recipes[index];
@@ -41,5 +38,10 @@ public class RecipeCollection
         return recipes.Where(r => r.Cuisine == recipeCuisine).ToList();
     }
 
+    public override string ToString()
+    {
+        string result = string.Join("\n", recipes);
+        return result;
+    }
 
 }
