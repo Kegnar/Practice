@@ -26,7 +26,7 @@ public class Recipe
     {
         
     }
-    /* перегрузка ToStirng()
+    /* перегрузка ToString()
      Используется класс StringBuilder. По факту он тут ни к чему и можно легко обойтись обычным string, 
      т.к тут результирующая строка маленькая. Просто захотелось попробовать его использовать.
     */
@@ -49,5 +49,20 @@ public class Recipe
     public static bool operator !=(Recipe first, Recipe second)
     {
         return !(first == second);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj.GetType() != typeof(Recipe))
+        {
+            return false;
+        }
+        var other = (Recipe)obj;
+        return Title == other.Title && Author == other.Author && Year == other.Year;
+    }
+
+    public override int GetHashCode()
+    {
+        return Title.GetHashCode() ^ Author.GetHashCode() ^ Year.GetHashCode()^Cuisine.GetHashCode();
     }
 }
